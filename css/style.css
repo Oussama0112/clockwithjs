@@ -1,0 +1,196 @@
+:root {
+}
+/* css reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-image: url("https://unsplash.it/600");
+  background-size: cover;
+  animation: dynamicBackground 10s infinite alternate;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* ----main code------------- */
+
+.clock {
+  --clr: rgb(255 255 255 / 35%);
+  width: 600px;
+  height: 600px;
+  border: 5px solid var(--clr);
+  border-radius: 50%;
+  background-color: var(--clr);
+  position: relative;
+}
+.clock:before {
+  content: "\f017";
+  font-family: "Font Awesome 5 Free";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 80px;
+  z-index: 50;
+  color: var(--clr);
+}
+.clock::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  z-index: 60;
+}
+.clock .secondHand {
+  --clr: red;
+  --rotate: 0;
+  width: 2px;
+  height: 40%;
+  background: var(--clr);
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+  z-index: 10;
+  transform-origin: bottom;
+  box-shadow: 0 0 5px 5px var(--clr);
+}
+.clock .secondHand::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -8px;
+  border: 10px solid transparent;
+  border-color: transparent transparent var(--clr) transparent;
+}
+.clock .minuteHand {
+  --clr: black;
+  --rotate: 0;
+  width: 7px;
+  height: 35%;
+  background: var(--clr);
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+  z-index: 8;
+  transform-origin: bottom;
+  box-shadow: 0 0 10px 1px var(--clr);
+}
+.clock .minuteHand::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -6px;
+  border: 10px solid transparent;
+  border-color: transparent transparent var(--clr) transparent;
+}
+.clock .hourHand {
+  --clr: black;
+  --rotate: 0;
+  width: 10px;
+  height: 30%;
+  background: var(--clr);
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+  z-index: 5;
+  transform-origin: bottom;
+  box-shadow: 0 0 10px 1px var(--clr);
+}
+.clock .hourHand::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -5px;
+  border: 10px solid transparent;
+  border-color: transparent transparent var(--clr) transparent;
+}
+.clock .hour {
+  left: 0;
+  top: 0;
+  position: absolute;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.clock .hour1 {
+  transform: rotate(30deg);
+}
+.clock .hour2 {
+  transform: rotate(60deg);
+}
+.clock .hour3 {
+  transform: rotate(90deg);
+}
+.clock .hour4 {
+  transform: rotate(120deg);
+}
+.clock .hour5 {
+  transform: rotate(150deg);
+}
+.clock .hour6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.clock .hour7 {
+  transform: rotate(210deg);
+}
+.clock .hour8 {
+  transform: rotate(240deg);
+}
+.clock .hour9 {
+  transform: rotate(270deg);
+}
+.clock .hour10 {
+  transform: rotate(300deg);
+}
+.clock .hour11 {
+  transform: rotate(330deg);
+}
